@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Multiply_Recursion
+public class Product
 
 {
 
