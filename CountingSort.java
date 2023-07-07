@@ -1,47 +1,40 @@
+package Q1;
+
 public class CountingSort {
-    public static void countingSort(int[] arr) {
-        int max = getMaxValue(arr);
-        int[] count = new int[max + 1];
-        int[] sortedArr = new int[arr.length];
 
-        // Count occurrences of each element
-        for (int i = 0; i < arr.length; i++) {
-            count[arr[i]]++;
-        }
+	public static void countingSort(int[] arr, int minVal, int maxVal) {
+		int size = arr.length;
+		int range = maxVal - minVal + 1;
+		int[] count = new int[range];
+		int[] output = new int[size];
 
-        // Calculate cumulative count
-        for (int i = 1; i <= max; i++) {
-            count[i] += count[i - 1];
-        }
+		for (int i = 0; i < size; i++) {
+			count[arr[i] - minVal]++;
+		}
 
-        // Build the sorted array
-        for (int i = arr.length - 1; i >= 0; i--) {
-            sortedArr[count[arr[i]] - 1] = arr[i];
-            count[arr[i]]--;
-        }
+		for (int i = 1; i < range; i++) {
+			count[i] += count[i - 1];
+		}
 
-        // Copy the sorted array back to the original array
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = sortedArr[i];
-        }
-    }
+		for (int i = size - 1; i >= 0; i--) {
+			output[count[arr[i] - minVal] - 1] = arr[i];
+			count[arr[i] - minVal]--;
+		}
 
-    private static int getMaxValue(int[] arr) {
-        int max = arr[0];
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] > max) {
-                max = arr[i];
-            }
-        }
-        return max;
-    }
+		for (int i = 0; i < size; i++) {
+			arr[i] = output[i];
+		}
+	}
 
-    public static void main(String[] args) {
-        int[] arr = {4, 2, 2, 8, 3, 3, 1};
-        System.out.println("Original array: " + Arrays.toString(arr));
+	public static void main(String[] args) {
+		int[] arr = { 57, 29, 90, 101, 95, 76 };
+		int minVal = 29;
+		int maxVal = 101;
 
-        countingSort(arr);
+		countingSort(arr, minVal, maxVal);
 
-        System.out.println("Sorted array: " + Arrays.toString(arr));
-    }
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + " ");
+		}
+	}
 }
