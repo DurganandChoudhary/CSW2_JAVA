@@ -1,4 +1,3 @@
-
 package SingleLinkedList;
 
 public class Loop {
