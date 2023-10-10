@@ -1,82 +1,54 @@
-package April_03_2023;
-import java.util.LinkedList;
-import java.util.ListIterator;
-import java.util.Scanner;
+package ASSIGNMENT;
 
-public class Student {
-    private String name;
-    private int age;
-    private int mark;
-   
-    public Student(String name, int age, int mark) {
-        this.name = name;
-        this.age = age;
-        this.mark = mark;
-      
+//ASSIGNMENT : 2
+
+class Student 
+{
+    static void m1(int x,char ch)
+    {
+        System.out.println("m1() method...........");
+        System.out.println("===================");
+        System.out.println("The value of x = "+x);
+        System.out.println("The value of ch = "+ch);
+        System.out.println();
+
+    }
+    void m2(double d , byte b)
+    {
+        System.out.println("m2() method............");
+        System.out.println("=========================");
+        System.out.println("The value of d = "+d);
+        System.out.println("The value of b = "+b);
+        System.out.println();
+    }
+    static void m3(short s , String str)
+    {
+        System.out.println("m2() method ........");
+        System.out.println("=======================");
+        System.out.println("The value of s = "+s);
+        System.out.println("The value of str = "+str);
+        System.out.println();
+    }
+    void m4(long l,int i,float k)
+    {
+        System.out.println("m3() method ..........");
+        System.out.println("=======================");
+        System.out.println("The value of l = "+l);
+        System.out.println("The value of i = "+i);
+        System.out.println("The value of k = "+k);
+        System.out.println();
     }
 
-    public String getName() {
-        return name;
-    }
+    public static void main(String[] args) 
+    {
+        Student.m1(10, '$');
+        Student st = new Student();
+        st.m2(1.1, (byte)9);
+        Student.m3((short)5, "Rahul");
+        st.m4(456936, 55, 4.56f);
 
-    public int getAge() {
-        return age;
-    }
 
-    public int getMark() {
-        return mark;
-    }
-
-  
-
-    public static void main(String[] args) {
-        LinkedList<Student> students = new LinkedList<>();
-
-        students.add(new Student("Ajay", 20, 90));
-        students.add(new Student("Raj", 21, 85));
-        students.add(new Student("Mohan", 19, 92));
-        students.add(new Student("Rajvir", 22, 80));
-
-        System.out.println("List of students:");
-        for (Student student : students) {
-            System.out.println(student.getName() + " " + student.getAge() + " " + student.getMark()      );
-        }
-
-        Scanner sc = new Scanner(System.in);
         
-        
-        System.out.println("Enter a student's name to be dispayed:");
-        String name1 = sc.next();
-       
-        ListIterator<Student> it=students.listIterator();
-		while(it.hasNext()) {
-			Student s = it.next();
-			String name = s.name;
-			System.out.println(s);
-			if(name.equals(name1))
-				System.out.println("true");
-			else
-				System.out.println("false");
-		}
-	
-        	students.remove(1);
-        	for (Student student : students) {
-                System.out.println(student.getName() + " " + student.getAge() + " " + student.getMark()      );
-            }
-        	 System.out.println(students.size());
     }
+    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
