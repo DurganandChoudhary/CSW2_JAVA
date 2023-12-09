@@ -1,36 +1,30 @@
-package Array;
+package Exception;
 
-import java.util.*;
+import java.util.Scanner;
 
-class Test
+public class Test 
 {
+    public static boolean vote(int a) throws Exception
+    {
+        if(a<10)
+        {
+            throw new Exception("Please enter a valid age.");
+        }
+        return true;
+    }
     public static void main(String[] args) {
         
-        int [][]arr;
-        System.out.println("Enter row and col of array");
-        Scanner sc = new Scanner(System.in);
-        int row = sc.nextInt();
-        int col = sc.nextInt();
-        arr = new int[row][col];
-        System.out.println("plz enter "+row*col+" no of elements");
-
-        for(int i=0;i<row;i++)
-        {
-            for(int j=0;j<col;j++)
-            {
-                arr[i][j] = sc.nextInt();
-            }
+        try{
+            System.out.println("Enter age : ");
+            int age = new Scanner (System.in).nextInt();
+            boolean status = vote (age);
+            System.out.println(status);
         }
-        System.out.println("Elements are : ");
-
-        for(int i=0;i<row;i++)
+        catch(Exception e)
         {
-            for(int j=0;j<col;j++)
-            {
-                System.out.print(arr[i][j]+" ");
-            }
-            System.out.println();
+            System.out.println(e.getMessage());
         }
-        sc.close();
+        
     }
+    
 }
