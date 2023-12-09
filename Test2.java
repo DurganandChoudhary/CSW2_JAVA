@@ -1,52 +1,26 @@
-package ASSIGNMENT;
-//Assignment 1
+package Exception;
 
-class Test2 
+import java.util.Scanner;
+
+public class Test2 
 {
-    static void m1()
-    {
-        System.out.println("m1() method.....");
-        //System.out.println("=====================");
-        System.out.println();
-
-    }
-    static void m2()
-    {
-        System.out.println("m2() method ...............");
-        System.out.println("==========================");
-        System.out.println();
-
-
-    }
-    void m3()
-    {
-        System.out.println("m3() method...........");
-        //System.out.println("===========================");
-
-        Test2.m1();
-        Test2.m2();
-        System.out.println();
-
-
-    }
-    void m4()
-    {
-        System.out.println("m4() method .............");
-        //System.out.println("============================");
+    public static void main(String[] args) {
         
-        Test2.m1();
-        Test2.m2();
-        System.out.println();
+        try{
+            // code for open a file
+            Scanner sc = new Scanner(System.in);
+            int num = sc.nextInt();
+            System.out.println(num);
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
 
-
-    }
-    public static void main(String[] args) 
-    {
-        Test2 t = new Test2();
-        t.m3();
-        t.m4();
-
-        
+        }
+        finally
+        {
+            System.out.println("clean up code ... for close the file");
+        }
     }
     
 }
